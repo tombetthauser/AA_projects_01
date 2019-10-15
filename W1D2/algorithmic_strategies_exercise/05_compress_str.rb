@@ -2,10 +2,7 @@
 # The method should return a new str where streaks of consecutive characters are compressed.
 # For example "aaabbc" is compressed to "3a2bc".
 
-require "byebug"
-
 def compress_str(str)
-    debugger
     compressed = ""
     i = 0
 
@@ -18,25 +15,12 @@ def compress_str(str)
             i += 1
         end
 
-        if count > 1
-            compressed += (count.to_s + char)
-        else
-            compressed += char
-        end
+        compressed += count.to_s if count > 1
+        compressed += char
     end
 
     compressed
 end
-
-# "  a  a  a  b  b  c  "
-#    ^
-#          ^
-
-# step 01:    count = 1   pointer1 = str[0] "a"   pointer2 = "a"   return = ""
-# step 02:    count = 2   pointer1 = str[0] "a"   pointer2 = "a"   return = ""
-# step 03:    count = 3   pointer1 = str[0] "a"   pointer2 = "a"   return = ""
-# step 04:    count = 3   pointer1 = "a"   pointer2 = b   return = "3a"
-
 
 p compress_str("aaabbc")        # => "3a2bc"
 p compress_str("xxyyyyzz")      # => "2x4y2z"
