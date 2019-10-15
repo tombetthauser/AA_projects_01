@@ -2,6 +2,12 @@
 # The method should return true if the elements are in increasing order, false otherwise.
 # Do not use the built-in Array#sort in your solution :)
 
+def is_sorted(arr)
+    arr[0...-1].each_with_index do |ele, idx|
+        return false if arr[idx] > arr[idx+1]
+    end
+    true
+end
 
 p is_sorted([1, 4, 10, 13, 15])       # => true
 p is_sorted([1, 4, 10, 10, 13, 15])   # => true
