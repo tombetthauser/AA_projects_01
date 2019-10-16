@@ -27,8 +27,7 @@ def caesar_cipher(message, n)
     message.each_char do |char|
         if alpha.include?(char)
             old_idx = alpha.index(char)
-            new_idx = (old_idx + n) % max_idx
-            new_message += alpha[new_idx]
+            new_message += alpha[(old_idx + n) % max_idx]
         else
             new_message += char
         end
