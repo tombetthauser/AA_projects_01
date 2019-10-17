@@ -6,9 +6,10 @@
 require "byebug"
 
 def many_vowel_words(sentence)
-    words = sentence.split("")
+    words = sentence.split(" ")
 
     new_words = words.select do |word|
+        # debugger
         num_vowels = num_vowels(word)
         num_vowels >= 2
     end
@@ -19,7 +20,7 @@ end
 def num_vowels(word)
     count = 0
     word.each_char do |char|
-        count += 1 if "aeiou".includes?(char)
+        count += 1 if "aeiou".include?(char)
     end
     count
 end
